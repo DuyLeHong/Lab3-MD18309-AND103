@@ -81,11 +81,13 @@ app.get('/update/:id', async (req, res) => {
     res.send(sanphams);
 }) 
 
-module.exports = {
-    uri: uri,
-}
+// module.exports = {
+//     uri: uri,
+// }
 
-
+exports.uri = uri;
+exports.mongoose = mongoose;
+exports.spModel = spModel;
 
 
 

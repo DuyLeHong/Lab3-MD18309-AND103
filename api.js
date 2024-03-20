@@ -4,21 +4,16 @@ const router = express.Router();
 
 module.exports = router;
 
-router.get('/', (req, res) => {
-    res.send('vao api mobile');
-});
-
 const server = require('./server');
 
-const uri = 'mongodb+srv://duylh17:ZxEcGmALyAE56AhO@cluster0.0n8qgpd.mongodb.net/md18309';
-
-const spModel = require('./sanphamModel');
-const mongoose = require('mongoose');
+router.get('/', (req, res) => {
+    res.send('URI:' + app.uri);
+});
 
 router.get('/list', async (req, res) => {
-    await mongoose.connect(uri);
+    await server.mongoose.connect(server.uri);
 
-    let sanphams = await spModel.find();
+    let sanphams = await server.spModel.find();
 
     console.log(sanphams);
 
